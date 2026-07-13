@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ============================================================= -->
+<!--  INVITACIÓN DE BODA  ·  edita los textos marcados con  ✏️     -->
+<!-- ============================================================= -->
+<title>Leticia & Fidel · Nuestra boda</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<div class="frame">
+<div class="sheet">
+
+  <!-- ======= NAV ======= -->
+  <nav>
+    <div class="monogram" aria-label="Iniciales de los novios">
+      <div class="leaf">❧</div>
+      <div class="initials">L<span>|</span>F</div>
+    </div>
+    <button class="menu-btn" aria-label="Menú" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <ul class="navlinks" id="nav">
+      <li><a href="#historia">Nuestra historia</a></li>
+      <li><a href="#eventos">Eventos</a></li>
+      <li><a href="#rsvp">Confirmar</a></li>
+    </ul>
+  </nav>
+
+  <!-- ======= HERO ======= -->
+  <div class="hero">
+    <!-- sprig decorativo esquina superior derecha del hero -->
+    <div class="sprig" style="top:-30px;right:-10px;width:230px;height:230px;transform:scaleX(-1)"></div>
+
+    <div class="reveal">
+      <div class="hero-eyebrow caps">¡Nos casamos!</div>
+      <!-- ✏️ Nombres / título -->
+      <h1>Leticia <em>&</em><br>Fidel</h1>
+      <p class="sub">Con mucha alegría queremos compartir contigo el día
+        en que uniremos nuestras vidas. Acompáñanos a celebrar el comienzo
+        de nuestra historia juntos.</p>
+
+      <!-- Dedicatoria personalizada (se llena sola desde el enlace) -->
+      <div class="dedication" id="dedication">
+        <span class="ded-label caps">Con cariño para</span>
+        <span class="ded-name" id="guestName">nuestros invitados</span>
+        <span class="ded-pases" id="guestPases"></span>
+      </div>
+
+      <a href="#eventos" class="btn">Ver detalles</a>
+    </div>
+
+    <div class="hero-photo reveal">
+      <div class="photo-ring">
+        <!-- ✏️ Reemplaza este div por: <img class="img" src="foto.jpg" alt="Ana y Miguel"> -->
+        <div class="img">Su foto aquí</div>
+      </div>
+      <div class="date-badge">
+        <!-- ✏️ Fecha -->
+        <span class="m">Octubre</span>
+        <span class="d"><small>Sáb</small>17</span>
+        <span class="y">2026</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /sheet -->
+
+<div class="sheet" style="margin-top:22px">
+
+  <!-- ======= COUNTDOWN ======= -->
+  <section class="block count-wrap reveal">
+    <div class="eyebrow caps">Falta poco</div>
+    <h2>Cuenta regresiva</h2>
+    <div class="flourish"></div>
+    <div class="count" id="count">
+      <div class="u"><div class="n" id="d">--</div><div class="l">Días</div></div>
+      <div class="u"><div class="n" id="h">--</div><div class="l">Horas</div></div>
+      <div class="u"><div class="n" id="m">--</div><div class="l">Min</div></div>
+      <div class="u"><div class="n" id="s">--</div><div class="l">Seg</div></div>
+    </div>
+  </section>
+
+  <!-- ======= HISTORIA ======= -->
+  <section class="block" id="historia">
+    <div class="reveal">
+      <div class="eyebrow caps">Cómo empezó todo</div>
+      <h2>Nuestra historia</h2>
+      <div class="flourish"></div>
+    </div>
+    <div class="story">
+      <div class="txt reveal">
+        <!-- ✏️ Escribe aquí su historia -->
+        <p>Nos conocimos en la universidad. Aún nos preguntamos cómo coincidimos, estamos seguros de que volver a encontrarnos fue el destino. Hoy, con inmensa felicidad, queremos compartir con ustedes el comienzo de nuestra historia para siempre.</p>
+      </div>
+      <div class="story-photo reveal">Foto de la pareja</div>
+    </div>
+  </section>
+
+</div><!-- /sheet -->
+
+<div class="sheet" style="margin-top:22px">
+
+  <!-- ======= EVENTOS ======= -->
+  <section class="block" id="eventos">
+    <div class="reveal">
+      <div class="eyebrow caps">Te esperamos</div>
+      <h2>Eventos</h2>
+      <div class="flourish"></div>
+    </div>
+    <div class="events">
+      <div class="ev reveal">
+        <div class="ico">⛪</div>
+        <h3>Ceremonia</h3>
+        <!-- ✏️ Datos de la ceremonia -->
+        <div class="when">Sábado 17 Octubre · 13:00 h</div>
+        <p>Parroquia Redemptoris Mater</p>
+        <p>Cto. Fundadores 43, Cd. Satélite, 53100 Naucalpan de Juárez, Méx</p>
+        <a class="map" href="https://www.google.com/maps/dir//Parroquia+Redemptoris+Mater,+Cto.+Fundadores+43,+Cd.+Sat%C3%A9lite,+53100+Naucalpan+de+Ju%C3%A1rez,+M%C3%A9x./@19.5618275,-99.2045033,16z/data=!4m8!4m7!1m0!1m5!1m1!1s0x85d202dbdc23c779:0x2eabd732ac61977e!2m2!1d-99.2283409!2d19.5070273?hl=es&entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Cómo llegar</a>
+      </div>
+      <div class="ev reveal">
+        <div class="ico">🥂</div>
+        <h3>Recepción</h3>
+        <!-- ✏️ Datos de la recepción -->
+        <div class="when">Sábado 17 Octubre · 15:30 h</div>
+        <p>Centro Cívico Satélite</p>
+        <p>Cto. Medicos 77, Cd. Satélite, 53100 Naucalpan de Juárez, Méx.</p>
+        <a class="map" href="https://www.google.com/maps/dir//Centro+C%C3%ADvico+Sat%C3%A9lite+by+Platinum+Events,+Cto.+Medicos+77,+Cd.+Sat%C3%A9lite,+53100+Naucalpan+de+Ju%C3%A1rez,+M%C3%A9x./@19.5592192,-99.2247808,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x85d202d9f17b07db:0xebf2afd2e513843c!2m2!1d-99.2287581!2d19.5101005?hl=es&entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Cómo llegar</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /sheet -->
+
+<div class="sheet" style="margin-top:22px">
+
+  <!-- ======= RSVP ======= -->
+  <section class="block rsvp-wrap reveal" id="rsvp">
+    <div class="eyebrow caps">Tu presencia es lo más importante</div>
+    <h2>Confirma tu asistencia</h2>
+    <div class="flourish"></div>
+    <p class="lead">Ayúdanos a organizar cada detalle. Confírmanos si podrás
+      acompañarnos con un solo clic.</p>
+    <!-- ✏️ RSVP por WhatsApp: cambia el número (con código de país, sin +, sin espacios) -->
+    <a class="btn btn-wa" id="waBtn"
+       href="https://wa.me/525564503861"
+       target="_blank" rel="noopener">Confirmar por WhatsApp</a>
+    <div class="deadline">Confirma antes del 15 de septiembre</div>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    <div class="sprig" style="bottom:-20px;left:-20px;width:200px;height:200px"></div>
+    <div class="sprig" style="bottom:-20px;right:-20px;width:200px;height:200px;transform:scaleX(-1)"></div>
+    <div class="names">Leticia &amp; Fidel</div>
+    <!-- ✏️ Hashtag -->
+    <div class="hash">#AnaYMiguel2026</div>
+    <!-- <div class="socials">
+      <a href="https://instagram.com" target="_blank" rel="noopener"><span class="dot">◎</span>@nuestraboda</a>
+      <a href="https://facebook.com" target="_blank" rel="noopener"><span class="dot">f</span>@nuestraboda</a>
+    </div> -->
+  </footer>
+
+</div><!-- /sheet -->
+</div><!-- /frame -->
+
+<!-- ========= SVG botánico reutilizable (se clona en los .sprig) ========= -->
+<template id="sprig-tpl">
+  <svg viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#b89a5f" stroke-width="1.3" stroke-linecap="round">
+      <path d="M40 250 C 70 210 60 170 95 140 C 125 115 120 75 150 40" fill="none"/>
+      <g fill="#dfe4d6" fill-opacity=".55">
+        <ellipse cx="70" cy="205" rx="20" ry="9" transform="rotate(-40 70 205)"/>
+        <ellipse cx="95" cy="165" rx="22" ry="9" transform="rotate(-20 95 165)"/>
+        <ellipse cx="118" cy="128" rx="20" ry="8" transform="rotate(-45 118 128)"/>
+        <ellipse cx="140" cy="90" rx="21" ry="9" transform="rotate(-25 140 90)"/>
+        <ellipse cx="158" cy="52" rx="16" ry="7" transform="rotate(-40 158 52)"/>
+      </g>
+      <g fill="none">
+        <ellipse cx="52" cy="222" rx="16" ry="7" transform="rotate(35 52 222)"/>
+        <ellipse cx="80" cy="182" rx="18" ry="7" transform="rotate(55 80 182)"/>
+        <ellipse cx="104" cy="146" rx="17" ry="7" transform="rotate(30 104 146)"/>
+        <ellipse cx="128" cy="106" rx="18" ry="7" transform="rotate(50 128 106)"/>
+      </g>
+    </g>
+    <g fill="#c4a96b" fill-opacity=".5">
+      <circle cx="168" cy="30" r="2.4"/><circle cx="176" cy="46" r="1.6"/>
+      <circle cx="30" cy="238" r="2"/><circle cx="46" cy="248" r="1.4"/>
+    </g>
+  </svg>
+</template>
+
+<script>
+  // clonar el sprig en cada contenedor .sprig
+  const tpl = document.getElementById('sprig-tpl').content;
+  document.querySelectorAll('.sprig').forEach(el=>el.appendChild(tpl.cloneNode(true)));
+
+  // ===== PERSONALIZACIÓN POR ENLACE =====
+  // Lee ?para=Familia+García&pases=4 del enlace y llena la invitación
+  const WA_NUMERO = '525564503861'; // ✏️ tu WhatsApp (código de país + número, sin + ni espacios)
+  const params = new URLSearchParams(location.search);
+  const para  = params.get('para');   // nombre de la familia / invitado
+  const pases = params.get('pases');  // número de pases
+
+  if(para){
+    document.getElementById('guestName').textContent = para;
+  }else{
+    // si el enlace no trae datos, ocultamos la dedicatoria
+    document.getElementById('dedication').style.display = 'none';
+  }
+  if(pases){
+    const n = parseInt(pases,10);
+    document.getElementById('guestPases').textContent =
+      n === 1 ? 'Reservamos 1 pase para ti' : 'Reservamos ' + n + ' pases para ti';
+  }
+
+  // Arma el mensaje de WhatsApp ya personalizado
+  const quien = para ? (' de parte de ' + para) : '';
+  const paseText = pases ? (' y confirmo ' + pases + ' asiento' + (pases === '1' ? '' : 's')) : '';
+  const msg = '¡Hola! Confirmo mi asistencia a la boda de Leticia y Fidel' + quien + paseText + ' 🤍';
+  document.getElementById('waBtn').href =
+    'https://wa.me/' + WA_NUMERO + '?text=' + encodeURIComponent(msg);
+
+  // ✏️ FECHA DE LA BODA para la cuenta regresiva (año, mes 0-11, día, hora, min)
+  const boda = new Date(2026, 10, 17, 13, 0, 0); // 15 nov 2026, 17:00
+  const pad = n => String(n).padStart(2,'0');
+  function tick(){
+    const diff = boda - new Date();
+    if(diff <= 0){ document.getElementById('count').innerHTML =
+      '<div class="u"><div class="n">¡Hoy es el día! 💍</div></div>'; return; }
+    const dd = Math.floor(diff/86400000);
+    const hh = Math.floor(diff%86400000/3600000);
+    const mm = Math.floor(diff%3600000/60000);
+    const ss = Math.floor(diff%60000/1000);
+    document.getElementById('d').textContent = dd;
+    document.getElementById('h').textContent = pad(hh);
+    document.getElementById('m').textContent = pad(mm);
+    document.getElementById('s').textContent = pad(ss);
+  }
+  tick(); setInterval(tick,1000);
+
+  // animación al hacer scroll
+  const io = new IntersectionObserver((es)=>es.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  }),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // cerrar menú móvil al elegir un enlace
+  document.querySelectorAll('.navlinks a').forEach(a=>
+    a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+</script>
+</body>
+</html>
