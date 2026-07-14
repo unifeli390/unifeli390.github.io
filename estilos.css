@@ -210,7 +210,7 @@
     .navlinks.open{display:flex}
     .navlinks a{padding:15px 22px;border-bottom:1px solid var(--line)}
     .navlinks a:last-child{border-bottom:none}
-    .hero{grid-template-columns:1fr;text-align:center;padding-bottom:40px}
+    .hero{grid-template-columns:1fr;padding-bottom:40px}
     .hero p.sub{margin-left:auto;margin-right:auto}
     .story,.events{grid-template-columns:1fr}
     .story .txt{order:2}
