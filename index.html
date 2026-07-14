@@ -28,6 +28,8 @@
     <ul class="navlinks" id="nav">
       <li><a href="#historia">Nuestra historia</a></li>
       <li><a href="#eventos">Eventos</a></li>
+      <li><a href="#vestimenta">Vestimenta</a></li>
+      <li><a href="#regalos">Mesa de regalos</a></li>
       <li><a href="#rsvp">Confirmar</a></li>
     </ul>
   </nav>
@@ -57,17 +59,53 @@
 
     <div class="hero-photo reveal">
       <div class="photo-ring">
-        <!-- ✏️ Reemplaza este div por: <img class="img" src="foto.jpg" alt="Ana y Miguel"> -->
-        <div class="img">Su foto aquí</div>
+        <img class="img" src="foto-pareja.png" alt="Leticia y Fidel" style="object-fit:contain;background:var(--cream);padding:18px">
       </div>
       <div class="date-badge">
         <!-- ✏️ Fecha -->
-        <span class="m">Octubre</span>
+        <span class="m">OCT</span>
         <span class="d"><small>Sáb</small>17</span>
         <span class="y">2026</span>
       </div>
     </div>
   </div>
+
+</div><!-- /sheet -->
+
+<div class="sheet" style="margin-top:22px">
+
+  <!-- ======= PADRES Y PADRINOS ======= -->
+  <section class="block padres-wrap reveal" id="padres">
+    <div class="reveal">
+      <div class="eyebrow caps">En compañía de Dios y nuestros padres:</div>
+      <div class="flourish"></div>
+    </div>
+
+    <div class="padres-monogram">
+      <div class="monogram">
+        <div class="leaf">❧</div>
+        <div class="initials">L<span>|</span>F</div>
+      </div>
+    </div>
+
+    <div class="padres-grid">
+      <div class="padres-col reveal">
+        <div class="padres-label caps">Padres de la novia</div>
+        <p class="padres-name">Victor Balderrabano Hernández</p>
+        <p class="padres-name">Guillermina Aguilar Guerrero</p>
+      </div>
+      <div class="padres-col reveal">
+        <div class="padres-label caps">Padres del novio</div>
+        <p class="padres-name">Fidel Martínez García</p>
+        <p class="padres-name">Maria Guadalupe Marín Cruz</p>
+      </div>
+      <div class="padres-col reveal">
+        <div class="padres-label caps">Padrinos</div>
+        <p class="padres-name">Rosa Martínez García</p>
+        <p class="padres-name">Jorge Arturo Briones Arista</p>
+      </div>
+    </div>
+  </section>
 
 </div><!-- /sheet -->
 
@@ -139,6 +177,49 @@
 
 <div class="sheet" style="margin-top:22px">
 
+  <!-- ======= CÓDIGO DE VESTIMENTA ======= -->
+  <section class="block dresscode-wrap reveal" id="vestimenta">
+    <div class="reveal">
+      <div class="eyebrow caps">Ayúdanos a vestir la ocasión</div>
+      <h2>Código de vestimenta</h2>
+      <div class="flourish"></div>
+    </div>
+
+    <div class="dresscode-type caps">Cocktail / Formal</div>
+
+    <div class="dresscode-icons">
+      <div class="dc-ico reveal">👗</div>
+      <div class="dc-ico reveal">🤵</div>
+    </div>
+
+    <div class="dresscode-no">
+      <span class="dc-no-label caps">Colores no permitidos</span>
+      <div class="dc-swatches">
+        <span class="dc-swatch" style="background:#ffffff"></span>
+        <span class="dc-swatch-name">Blanco</span>
+        <span class="dc-swatch" style="background:#a9d3e5"></span>
+        <span class="dc-swatch-name">Azul cielo</span>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /sheet -->
+
+<div class="sheet" style="margin-top:22px">
+
+  <!-- ======= MESA DE REGALOS ======= -->
+  <section class="block gift-wrap reveal" id="regalos">
+    <div class="eyebrow caps">Tu presencia es nuestro mejor regalo</div>
+    <h2>Mesa de regalos</h2>
+    <div class="flourish"></div>
+    <p class="lead">Si deseas obsequiarnos algo, con mucho cariño hemos preparado una mesa de regalos para ti.</p>
+    <a class="btn" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60008828" target="_blank" rel="noopener">Ver mesa de regalos</a>
+  </section>
+
+</div><!-- /sheet -->
+
+<div class="sheet" style="margin-top:22px">
+
   <!-- ======= RSVP ======= -->
   <section class="block rsvp-wrap reveal" id="rsvp">
     <div class="eyebrow caps">Tu presencia es lo más importante</div>
@@ -150,7 +231,7 @@
     <a class="btn btn-wa" id="waBtn"
        href="https://wa.me/525564503861"
        target="_blank" rel="noopener">Confirmar por WhatsApp</a>
-    <div class="deadline">Confirma antes del 15 de septiembre</div>
+    <div class="deadline">Confirma antes del 30 de agosto</div>
   </section>
 
   <!-- ======= FOOTER ======= -->
@@ -159,7 +240,7 @@
     <div class="sprig" style="bottom:-20px;right:-20px;width:200px;height:200px;transform:scaleX(-1)"></div>
     <div class="names">Leticia &amp; Fidel</div>
     <!-- ✏️ Hashtag -->
-    <div class="hash">#AnaYMiguel2026</div>
+    <div class="hash">#LeticiaYFidel2026</div>
     <!-- <div class="socials">
       <a href="https://instagram.com" target="_blank" rel="noopener"><span class="dot">◎</span>@nuestraboda</a>
       <a href="https://facebook.com" target="_blank" rel="noopener"><span class="dot">f</span>@nuestraboda</a>
@@ -227,7 +308,7 @@
     'https://wa.me/' + WA_NUMERO + '?text=' + encodeURIComponent(msg);
 
   // ✏️ FECHA DE LA BODA para la cuenta regresiva (año, mes 0-11, día, hora, min)
-  const boda = new Date(2026, 10, 17, 13, 0, 0); // 15 nov 2026, 17:00
+  const boda = new Date(2026, 9, 17, 13, 0, 0); // 15 nov 2026, 17:00
   const pad = n => String(n).padStart(2,'0');
   function tick(){
     const diff = boda - new Date();
