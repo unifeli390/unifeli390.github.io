@@ -10,18 +10,51 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600&family=Jost:wght@300;400;500&family=Beau+Rivage&family=Parisienne&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+
+<!-- ========= Monograma L&F — nueva identidad visual (dorado) ========= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="foilGold" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#a9d3e5"/>
+      <stop offset="45%" stop-color="#4f8fb3"/>
+      <stop offset="100%" stop-color="#2c5c78"/>
+    </linearGradient>
+    <symbol id="monogram-mark" viewBox="0 0 300 220">
+      <path d="M173.8 21.1 A92 92 0 1 1 126.2 21.1" fill="none" stroke="url(#foilGold)" stroke-width="1.2"/>
+      <g fill="none" stroke="url(#foilGold)" stroke-width="1.6">
+        <circle cx="141" cy="72" r="10"/>
+        <circle cx="159" cy="72" r="10"/>
+      </g>
+      <text x="146" y="150" text-anchor="end" font-family="'Beau Rivage',cursive" font-size="92" fill="url(#foilGold)">L</text>
+      <text x="152" y="150" text-anchor="start" font-family="'Beau Rivage',cursive" font-size="92" fill="url(#foilGold)">F</text>
+      <g stroke="url(#foilGold)" stroke-width="1" stroke-linecap="round" fill="none">
+        <path d="M108 176 C 96 182 84 184 72 180"/>
+        <path d="M96 179 L88 172 M96 179 L90 187" stroke-width=".9"/>
+        <path d="M84 181 L77 174 M84 181 L78 189" stroke-width=".9"/>
+        <path d="M72 180 L66 174 M72 180 L67 187" stroke-width=".9"/>
+      </g>
+      <g stroke="url(#foilGold)" stroke-width="1" stroke-linecap="round" fill="none">
+        <path d="M192 176 C 204 182 216 184 228 180"/>
+        <path d="M204 179 L212 172 M204 179 L210 187" stroke-width=".9"/>
+        <path d="M216 181 L223 174 M216 181 L222 189" stroke-width=".9"/>
+        <path d="M228 180 L234 174 M228 180 L233 187" stroke-width=".9"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
 <div class="frame">
 <div class="sheet">
 
   <!-- ======= NAV ======= -->
   <nav>
     <div class="monogram" aria-label="Iniciales de los novios">
-      <div class="initials">L<span>&amp;</span>F</div>
+      <svg class="monogram-svg" viewBox="0 0 300 220" aria-hidden="true"><use href="#monogram-mark"/></svg>
     </div>
     <button class="menu-btn" aria-label="Menú" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
     <ul class="navlinks" id="nav">
@@ -37,7 +70,7 @@
   <div class="hero">
 
     <div class="reveal">
-      <div class="hero-eyebrow caps">¡Nos casamos!</div>
+      <div class="hero-eyebrow caps">💍 ¡Nos casamos!</div>
       <!-- ✏️ Nombres / título -->
       <h1>Leticia <em>&</em><br>Fidel</h1>
       <p class="sub">Con mucha alegría queremos compartir contigo el día
@@ -80,7 +113,7 @@
 
     <div class="padres-monogram">
       <div class="monogram">
-        <div class="initials">L<span>&amp;</span>F</div>
+        <svg class="monogram-svg" viewBox="0 0 300 220" aria-hidden="true"><use href="#monogram-mark"/></svg>
       </div>
     </div>
 
@@ -236,7 +269,7 @@
   <footer>
     <div class="names">Leticia &amp; Fidel</div>
     <!-- ✏️ Hashtag -->
-    <div class="hash">#LeticiaYFidel2026</div>
+    <div class="hash">#Boda</div>
     <!-- <div class="socials">
       <a href="https://instagram.com" target="_blank" rel="noopener"><span class="dot">◎</span>@nuestraboda</a>
       <a href="https://facebook.com" target="_blank" rel="noopener"><span class="dot">f</span>@nuestraboda</a>

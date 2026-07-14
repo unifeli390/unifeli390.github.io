@@ -8,12 +8,15 @@
     --sage-soft:#eaf4fa;
     --muted:#74909f;
     --line:#d7e8f0;
+    --foil-gold:#b8873f;
+    --foil-gold-dark:#8a6526;
   }
 
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
     font-family:'Jost',sans-serif;
+    font-size:17px;
     color:var(--ink);
     background:var(--sage-bg);
     line-height:1.7;
@@ -30,41 +33,39 @@
   .sprig{position:absolute;pointer-events:none;opacity:.9;z-index:1}
   .sprig svg{display:block;width:100%;height:100%}
 
+  /* ---------- monograma (nueva identidad en azul) ---------- */
+  .monogram-svg{display:block;width:100%;height:100%}
+
   /* ---------- nav ---------- */
   nav{
     display:flex;align-items:center;justify-content:space-between;
     padding:34px 48px;position:relative;z-index:3;
   }
   .monogram{
-    width:80px;height:80px;border-radius:50%;border:1px solid var(--gold-light);
-    box-shadow:0 0 0 5px var(--card),0 0 0 6px var(--gold-light);
+    width:96px;height:70px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
-    background:var(--sage-soft);position:relative;
+    position:relative;
   }
-  .monogram .initials{font-family:'Cinzel',serif;color:var(--gold);
-    font-size:19px;letter-spacing:.04em;display:flex;gap:6px;align-items:center}
-  .monogram .initials span{font-family:'Cormorant Garamond',serif;font-style:italic;
-    font-weight:500;opacity:.85;font-size:16px;color:var(--gold-light)}
   .navlinks{display:flex;gap:34px;list-style:none}
   .navlinks a{
-    font-family:'Cinzel',serif;font-size:13px;letter-spacing:.13em;
+    font-family:'Cinzel',serif;font-size:14px;letter-spacing:.13em;
     text-transform:uppercase;color:var(--ink);text-decoration:none;
     padding-bottom:3px;border-bottom:1.5px solid transparent;transition:.25s;
   }
   .navlinks a:hover{color:var(--gold);border-color:var(--gold-light)}
-  .menu-btn{display:none;background:none;border:none;color:var(--ink);font-size:26px;cursor:pointer}
+  .menu-btn{display:none;background:none;border:none;color:var(--ink);font-size:27px;cursor:pointer}
 
   /* ---------- hero ---------- */
   .hero{position:relative;display:grid;grid-template-columns:1.05fr .95fr;
     gap:30px;align-items:center;padding:20px 48px 70px}
-  .hero-eyebrow{color:var(--gold);font-size:14px;margin-bottom:22px}
-  .hero h1{font-size:clamp(52px,7vw,104px);color:var(--gold);
+  .hero-eyebrow{color:var(--gold);font-size:15px;margin-bottom:22px}
+  .hero h1{font-size:clamp(53px,7vw,105px);color:var(--gold);
     letter-spacing:.02em;text-transform:uppercase}
   .hero h1 em{font-style:italic;font-weight:400;text-transform:none;color:var(--ink)}
   .hero p.sub{margin:26px 0 6px;color:var(--muted);max-width:400px;font-weight:300}
   .btn{
     display:inline-block;margin-top:30px;padding:15px 40px;
-    font-family:'Cinzel',serif;font-size:13px;letter-spacing:.15em;text-transform:uppercase;
+    font-family:'Cinzel',serif;font-size:14px;letter-spacing:.15em;text-transform:uppercase;
     color:var(--ink);text-decoration:none;background:var(--sage-soft);
     border:1px solid var(--gold-light);transition:.3s;cursor:pointer;
   }
@@ -75,10 +76,10 @@
     border-left:3px solid var(--gold-light);max-width:400px;
     display:flex;flex-direction:column;gap:3px;
   }
-  .dedication .ded-label{font-size:10px;color:var(--gold);letter-spacing:.2em}
-  .dedication .ded-name{font-family:'Cormorant Garamond',serif;font-size:28px;
+  .dedication .ded-label{font-size:11px;color:var(--gold);letter-spacing:.2em}
+  .dedication .ded-name{font-family:'Cormorant Garamond',serif;font-size:29px;
     font-weight:600;color:var(--ink);line-height:1.1}
-  .dedication .ded-pases{font-size:14px;color:var(--muted);font-weight:300;margin-top:2px}
+  .dedication .ded-pases{font-size:15px;color:var(--muted);font-weight:300;margin-top:2px}
   .dedication .ded-pases:empty{display:none}
 
   .hero-photo{position:relative;justify-self:center}
@@ -89,111 +90,109 @@
   .photo-ring .img{
     width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;
     background:linear-gradient(135deg,#eaf4fa,#ffffff);
-    /* ✏️ Para tu foto: pon la URL en background:url('foto.jpg') o cambia el div por <img src="foto.jpg"> */
     display:flex;align-items:center;justify-content:center;
-    color:var(--muted);font-size:13px;text-align:center;font-weight:300;
+    color:var(--muted);font-size:14px;text-align:center;font-weight:300;
   }
   .date-badge{
     display:flex;align-items:center;gap:16px;margin-top:38px;justify-content:center;
     font-family:'Cormorant Garamond',serif;
   }
-  .date-badge .m{color:var(--muted);font-size:19px;letter-spacing:.12em;text-transform:uppercase}
-  .date-badge .d{font-size:52px;font-weight:600;color:var(--ink);line-height:.9;
+  .date-badge .m{color:var(--muted);font-size:20px;letter-spacing:.12em;text-transform:uppercase}
+  .date-badge .d{font-size:53px;font-weight:600;color:var(--ink);line-height:.9;
     padding:0 16px;border-left:1px solid var(--line);border-right:1px solid var(--line)}
-  .date-badge .d small{display:block;font-size:15px;letter-spacing:.2em;color:var(--gold);
+  .date-badge .d small{display:block;font-size:16px;letter-spacing:.2em;color:var(--gold);
     text-transform:uppercase}
-  .date-badge .y{color:var(--muted);font-size:30px}
+  .date-badge .y{color:var(--muted);font-size:31px}
 
   /* ---------- secciones interiores ---------- */
   section.block{padding:88px 48px;position:relative}
-  .eyebrow{color:var(--gold);font-size:12px;text-align:center;margin-bottom:14px}
-  .block > h2{font-size:clamp(34px,4.5vw,56px);text-align:center;color:var(--ink);margin-bottom:8px}
+  .eyebrow{color:var(--gold);font-size:13px;text-align:center;margin-bottom:14px}
+  .block > h2{font-size:clamp(35px,4.5vw,57px);text-align:center;color:var(--ink);margin-bottom:8px}
   .flourish{width:90px;height:1px;background:var(--gold-light);margin:20px auto 0;position:relative}
   .flourish::before{content:"❦";position:absolute;left:50%;top:50%;transform:translate(-50%,-52%);
-    background:var(--card);color:var(--gold-light);padding:0 10px;font-size:14px}
+    background:var(--card);color:var(--gold-light);padding:0 10px;font-size:15px}
 
   /* countdown */
   .count-wrap{background:var(--cream)}
   .count{display:flex;justify-content:center;gap:clamp(18px,5vw,64px);margin-top:34px;flex-wrap:wrap}
   .count .u{text-align:center;min-width:64px}
-  .count .n{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,6vw,64px);
+  .count .n{font-family:'Cormorant Garamond',serif;font-size:clamp(41px,6vw,65px);
     font-weight:600;color:var(--gold);line-height:1}
-  .count .l{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .count .l{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:6px}
 
-  /* historia */
+  /* historia — diseño conservado (letra capital caligráfica + foto con marco y sombra) */
   .story{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;
     max-width:960px;margin:44px auto 0}
   .story .txt p{color:var(--muted);font-weight:300;margin-bottom:16px}
   .story .txt p:first-child::first-letter{
-    font-family:'Cormorant Garamond',serif;font-size:58px;float:left;line-height:.8;
-    color:var(--gold);margin:6px 12px 0 0;font-weight:600}
-  .story-photo{aspect-ratio:4/5;background:linear-gradient(135deg,#eaf4fa,#ffffff);
-    display:flex;align-items:center;justify-content:center;color:var(--muted);
-    font-size:13px;font-weight:300;border:1px solid var(--line);
-    width:100%;object-fit:cover;object-position:top center}
+    font-family:'Parisienne',cursive;font-size:65px;float:left;line-height:.7;
+    color:var(--gold);margin:10px 12px 0 0;font-weight:400}
+  .story-photo{aspect-ratio:4/5;display:block;border:1px solid var(--gold-light);padding:10px;
+    background:var(--card);width:100%;object-fit:cover;object-position:top center;
+    box-shadow:0 20px 46px -14px rgba(51,71,90,.3)}
 
   /* eventos */
   .events{display:grid;grid-template-columns:1fr 1fr;gap:34px;max-width:860px;margin:48px auto 0}
   .ev{background:var(--cream);border:1px solid var(--line);padding:44px 36px;text-align:center}
-  .ev .ico{font-size:30px;margin-bottom:14px}
-  .ev h3{font-size:30px;color:var(--gold);margin-bottom:6px}
-  .ev .when{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.14em;color:var(--ink);
+  .ev .ico{font-size:31px;margin-bottom:14px}
+  .ev h3{font-size:31px;color:var(--gold);margin-bottom:6px}
+  .ev .when{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.14em;color:var(--ink);
     text-transform:uppercase;margin-bottom:18px}
-  .ev p{color:var(--muted);font-weight:300;font-size:15px;margin-bottom:4px}
-  .ev a.map{display:inline-block;margin-top:16px;font-family:'Cinzel',serif;font-size:11px;
+  .ev p{color:var(--muted);font-weight:300;font-size:16px;margin-bottom:4px}
+  .ev a.map{display:inline-block;margin-top:16px;font-family:'Cinzel',serif;font-size:12px;
     letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;
     border-bottom:1px solid var(--gold-light);padding-bottom:2px}
 
 /* padres y padrinos */
   .padres-wrap{background:var(--cream)}
   .padres-wrap .eyebrow{font-family:'Cormorant Garamond',serif;
-    font-weight:600;font-size:20px;letter-spacing:.02em;text-transform:none;color:var(--gold)}
+    font-weight:600;font-size:21px;letter-spacing:.02em;text-transform:none;color:var(--gold)}
   .padres-monogram{display:flex;justify-content:center;margin:36px 0 6px}
   .padres-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;
     max-width:960px;margin:30px auto 0;text-align:center}
   .padres-col{padding:0 10px}
-  .padres-label{display:block;color:var(--gold);font-size:11px;margin-bottom:14px}
-  .padres-name{font-family:'Cormorant Garamond',serif;font-size:21px;
+  .padres-label{display:block;color:var(--gold);font-size:12px;margin-bottom:14px}
+  .padres-name{font-family:'Cormorant Garamond',serif;font-size:22px;
     color:var(--ink);font-weight:500;margin-bottom:4px}
 
   /* código de vestimenta */
   .dresscode-wrap{text-align:center}
-  .dresscode-type{color:var(--ink);font-size:16px;letter-spacing:.18em;margin-top:32px}
+  .dresscode-type{color:var(--ink);font-size:17px;letter-spacing:.18em;margin-top:32px}
   .dresscode-icons{display:flex;justify-content:center;gap:54px;margin:28px 0 8px}
-  .dc-ico{font-size:48px;line-height:1}
+  .dc-ico{font-size:49px;line-height:1}
   .dresscode-no{margin-top:30px}
-  .dc-no-label{display:block;color:var(--gold);font-size:11px;margin-bottom:16px}
+  .dc-no-label{display:block;color:var(--gold);font-size:12px;margin-bottom:16px}
   .dc-swatches{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap}
   .dc-swatch{display:inline-block;width:24px;height:24px;border-radius:50%;
     box-shadow:0 0 0 1px var(--line) inset,0 1px 3px rgba(0,0,0,.12)}
-  .dc-swatch-name{font-size:14px;color:var(--muted);margin-right:18px;font-weight:300}
+  .dc-swatch-name{font-size:15px;color:var(--muted);margin-right:18px;font-weight:300}
 
   /* mesa de regalos */
   .gift-wrap{background:var(--sage-soft);text-align:center}
   .gift-wrap p.lead{max-width:460px;margin:20px auto 0;color:var(--ink);
-    font-weight:300;font-size:17px}
-  .gift-num{margin-top:16px;font-size:13px;color:var(--muted);letter-spacing:.04em}
+    font-weight:300;font-size:18px}
+  .gift-num{margin-top:16px;font-size:14px;color:var(--muted);letter-spacing:.04em}
   .gift-num strong{color:var(--ink);font-weight:500}
 
   /* rsvp */
   .rsvp-wrap{background:var(--sage-soft);text-align:center}
-  .rsvp-wrap p.lead{max-width:460px;margin:20px auto 0;color:var(--ink);font-weight:300;font-size:17px}
-  .rsvp-wrap .deadline{color:var(--gold);font-family:'Cinzel',serif;font-size:12px;
+  .rsvp-wrap p.lead{max-width:460px;margin:20px auto 0;color:var(--ink);font-weight:300;font-size:18px}
+  .rsvp-wrap .deadline{color:var(--gold);font-family:'Cinzel',serif;font-size:13px;
     letter-spacing:.14em;text-transform:uppercase;margin-top:14px}
   .btn-wa{background:var(--gold);color:#fff;border-color:var(--gold);margin-top:28px}
   .btn-wa:hover{background:var(--ink);border-color:var(--ink)}
 
   /* footer */
   footer{background:var(--card);text-align:center;padding:60px 48px 70px;position:relative}
-  footer .names{font-family:'Cormorant Garamond',serif;font-size:40px;color:var(--gold);
+  footer .names{font-family:'Cormorant Garamond',serif;font-size:41px;color:var(--gold);
     font-style:italic}
-  footer .hash{color:var(--muted);letter-spacing:.1em;margin-top:8px;font-size:14px}
+  footer .hash{color:var(--muted);letter-spacing:.1em;margin-top:8px;font-size:15px}
   .socials{display:flex;justify-content:center;gap:26px;margin-top:26px}
   .socials a{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);
-    font-size:13px;letter-spacing:.06em;transition:.25s}
+    font-size:14px;letter-spacing:.06em;transition:.25s}
   .socials a:hover{color:var(--gold)}
   .socials .dot{width:34px;height:34px;border-radius:50%;background:var(--gold);
-    display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px}
+    display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px}
 
   /* animación de entrada */
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
@@ -217,8 +216,8 @@
     .padres-grid{grid-template-columns:1fr;gap:32px}
     .count{flex-wrap:nowrap;gap:clamp(6px,3vw,18px)}
     .count .u{min-width:0}
-    .count .n{font-size:clamp(22px,7vw,34px)}
-    .count .l{font-size:9px;letter-spacing:.1em}
+    .count .n{font-size:clamp(23px,7vw,35px)}
+    .count .l{font-size:10px;letter-spacing:.1em}
     .dresscode-icons{gap:36px}
     nav{padding:24px}
     .hero,section.block,footer{padding-left:24px;padding-right:24px}
