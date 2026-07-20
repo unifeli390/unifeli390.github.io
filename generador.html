@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de enlaces · Invitación</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Cinzel:wght@500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="generador.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Herramienta privada · no la subas al sitio</div>
+  <h1>Generador de enlaces</h1>
+  <p class="intro">Para invitados nuevos que no estén en tu Excel: elige el tipo,
+    escribe el nombre y los pases, y obtén su enlace personalizado listo para WhatsApp.</p>
+
+  <label for="base">Dirección de tu invitación publicada</label>
+  <input id="base" placeholder="https://tuboda.github.io" value="https://unifeli390.github.io">
+  <div class="hint">Pega aquí el enlace que te dio GitHub Pages o Netlify. Solo lo escribes una vez.</div>
+
+  <div class="row">
+    <div>
+      <label for="tipo">Tipo</label>
+      <select id="tipo">
+        <option value="F">Familia</option>
+        <option value="A">Amig@</option>
+      </select>
+    </div>
+    <div>
+      <label for="fam">Apellido / nombre</label>
+      <input id="fam" placeholder="García">
+    </div>
+    <div>
+      <label for="pases">Pases</label>
+      <input id="pases" type="number" min="1" placeholder="4" value="2">
+    </div>
+  </div>
+
+  <div style="margin-top:24px">
+    <button onclick="gen()">Generar enlace</button>
+  </div>
+
+  <div class="out" id="out">
+    <div class="link" id="link"></div>
+    <div class="btns">
+      <button onclick="copiar()">Copiar enlace</button>
+      <button class="wa" id="waShare">Compartir por WhatsApp</button>
+    </div>
+    <div class="toast" id="toast"></div>
+  </div>
+</div>
+
+<script>
+  // ⚠️ Debe ser IDÉNTICO al LINK_SECRET de index.html, o los enlaces no funcionarán
+  const LINK_SECRET = 'LF-Boda17Oct2026#';
+  const TIPO_MAP = { F: 'Familia', A: 'Amig@' };
+
+  function fnv1a(str){
+    let h = 0x811c9dc5;
+    const bytes = new TextEncoder().encode(str);
+    for(let i=0;i<bytes.length;i++){
+      h ^= bytes[i];
+      h = Math.imul(h, 0x01000193);
+    }
+    return (h >>> 0).toString(16).padStart(8,'0');
+  }
+  function b64urlEncode(str){
+    const bytes = new TextEncoder().encode(str);
+    let bin = '';
+    bytes.forEach(b => bin += String.fromCharCode(b));
+    return btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+  }
+  function randNonce(n=3){
+    const abc = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    let s = '';
+    for(let i=0;i<n;i++) s += abc[Math.floor(Math.random()*abc.length)];
+    return s;
+  }
+  function makeToken(code, invitado, cantidad){
+    const payload = code + '|' + invitado + '|' + cantidad + '|' + randNonce();
+    const b64 = b64urlEncode(payload);
+    const checksum = fnv1a(payload + LINK_SECRET).slice(0,6);
+    return b64 + '.' + checksum;
+  }
+
+  function limpiarBase(b){ return b.trim().replace(/\/+$/,''); } // quita / final
+  function gen(){
+    const base = limpiarBase(document.getElementById('base').value);
+    const code = document.getElementById('tipo').value;
+    const fam  = document.getElementById('fam').value.trim();
+    const pas  = document.getElementById('pases').value.trim();
+    if(!base || !fam){ alert('Escribe la dirección del sitio y el nombre.'); return; }
+    const token = makeToken(code, fam, pas || '1');
+    const url = base + '/?i=' + token;
+    document.getElementById('link').textContent = url;
+    document.getElementById('out').classList.add('show');
+    document.getElementById('toast').textContent = '';
+    const etiqueta = TIPO_MAP[code] + ' ' + fam;
+    const msg = 'Hola ' + etiqueta + ', con mucho gusto los invitamos a nuestra boda. '
+      + 'Aquí su invitación: ' + url;
+    document.getElementById('waShare').onclick = ()=>
+      window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+  }
+  function copiar(){
+    const url = document.getElementById('link').textContent;
+    navigator.clipboard.writeText(url).then(()=>{
+      document.getElementById('toast').textContent = '✓ Enlace copiado';
+      setTimeout(()=>document.getElementById('toast').textContent='',2500);
+    });
+  }
+</script>
+</body>
+</html>

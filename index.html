@@ -245,7 +245,8 @@
        target="_blank" rel="noopener">
        <svg class="wa-icon" viewBox="0 0 32 32" aria-hidden="true"><use href="#wa-mark"/></svg>
        Confirmar por WhatsApp</a>
-    <div class="deadline">Confirma antes del 20 de septiembre de 2026</div>
+    <div class="deadline">Confirma tu asistencia lo antes posible.<br>
+      Fecha límite: 20 de septiembre.</div>
   </section>
 
 
@@ -293,17 +294,55 @@
   const tpl = document.getElementById('sprig-tpl').content;
   document.querySelectorAll('.sprig').forEach(el=>el.appendChild(tpl.cloneNode(true)));
 
-  // ===== PERSONALIZACIÓN POR ENLACE =====
-  // Lee ?para=Familia+García&pases=4 del enlace y llena la invitación
+  // ===== PERSONALIZACIÓN POR ENLACE (segura, con token único por invitado) =====
+  // Cada invitado tiene su propio enlace: ?i=TOKEN (generado desde el Excel).
+  // El TOKEN trae Tipo+Invitado+Cantidad codificados + un checksum que evita que
+  // se adivinen o se editen enlaces a mano. Si el token no viene o no es válido,
+  // se muestra el mensaje genérico de siempre.
   const WA_NUMERO = '525564503861'; // ✏️ tu WhatsApp (código de país + número, sin + ni espacios)
+  const LINK_SECRET = 'LF-Boda17Oct2026#'; // ✏️ debe ser IDÉNTICO al usado al generar los enlaces
+  const TIPO_MAP = { F: 'Familia', A: 'Amig@' }; // ✏️ agrega aquí más tipos si usas otros
+
+  function fnv1a(str){
+    let h = 0x811c9dc5;
+    const bytes = new TextEncoder().encode(str);
+    for(let i=0;i<bytes.length;i++){
+      h ^= bytes[i];
+      h = Math.imul(h, 0x01000193);
+    }
+    return (h >>> 0).toString(16).padStart(8,'0');
+  }
+  function b64urlDecode(str){
+    str = str.replace(/-/g,'+').replace(/_/g,'/');
+    while(str.length % 4) str += '=';
+    const bin = atob(str);
+    const bytes = new Uint8Array(bin.length);
+    for(let i=0;i<bin.length;i++) bytes[i] = bin.charCodeAt(i);
+    return new TextDecoder().decode(bytes);
+  }
+  function decodeGuestToken(token){
+    const dot = token.lastIndexOf('.');
+    if(dot < 0) return null;
+    const b64 = token.slice(0, dot), checksum = token.slice(dot+1);
+    let payload;
+    try{ payload = b64urlDecode(b64); } catch(e){ return null; }
+    const expected = fnv1a(payload + LINK_SECRET).slice(0,6);
+    if(expected !== checksum) return null; // token inválido / alterado
+    const [code, invitado, cantidad] = payload.split('|');
+    const etiqueta = (TIPO_MAP[code] || code) + ' ' + invitado;
+    return { etiqueta, cantidad };
+  }
+
   const params = new URLSearchParams(location.search);
-  const para  = params.get('para');   // nombre de la familia / invitado
-  const pases = params.get('pases');  // número de pases
+  const tokenParam = params.get('i');
+  const guest = tokenParam ? decodeGuestToken(tokenParam) : null;
+  const para  = guest ? guest.etiqueta : null;
+  const pases = guest ? guest.cantidad : null;
 
   if(para){
     document.getElementById('guestName').textContent = para;
   }else{
-    // si el enlace no trae datos, ocultamos la dedicatoria
+    // sin enlace personalizado (o token inválido): ocultamos la dedicatoria
     document.getElementById('dedication').style.display = 'none';
   }
   if(pases){
@@ -315,7 +354,7 @@
   // Arma el mensaje de WhatsApp ya personalizado
   const quien = para ? (' de parte de ' + para) : '';
   const paseText = pases ? (' y confirmo ' + pases + ' asiento' + (pases === '1' ? '' : 's')) : '';
-  const msg = '¡Hola! Confirmo mi asistencia a la boda de Leticia y Fidel' + quien + paseText + ' 🤍';
+  const msg = '¡Hola! Confirmo la asistencia para la boda de Leticia y Fidel' + quien + paseText + ' 🤍';
   document.getElementById('waBtn').href =
     'https://wa.me/' + WA_NUMERO + '?text=' + encodeURIComponent(msg);
 

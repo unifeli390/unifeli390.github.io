@@ -191,8 +191,7 @@
   /* rsvp */
   .rsvp-wrap{background:var(--sage-soft);text-align:center}
   .rsvp-wrap p.lead{max-width:460px;margin:20px auto 0;color:var(--ink);font-weight:300;font-size:19px}
-  .rsvp-wrap .deadline{color:var(--gold);font-family:'Cinzel',serif;font-size:14px;
-    letter-spacing:.14em;text-transform:uppercase;margin-top:14px}
+  .rsvp-wrap .deadline{color:var(--ink);font-size:19px;margin-top:14px;font-weight:300}
   .btn-wa{background:var(--gold);color:#fff;border-color:var(--gold);margin-top:28px}
   .btn-wa:hover{background:var(--ink);border-color:var(--ink)}
 
