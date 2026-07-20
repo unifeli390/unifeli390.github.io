@@ -241,7 +241,7 @@
       acompañarnos con un solo clic.</p>
     <!-- ✏️ RSVP por WhatsApp: cambia el número (con código de país, sin +, sin espacios) -->
     <a class="btn btn-wa" id="waBtn"
-       href="https://wa.me/525564503861"
+       href="https://wa.me/525578485099"
        target="_blank" rel="noopener">
        <svg class="wa-icon" viewBox="0 0 32 32" aria-hidden="true"><use href="#wa-mark"/></svg>
        Confirmar por WhatsApp</a>
@@ -299,7 +299,7 @@
   // El TOKEN trae Tipo+Invitado+Cantidad codificados + un checksum que evita que
   // se adivinen o se editen enlaces a mano. Si el token no viene o no es válido,
   // se muestra el mensaje genérico de siempre.
-  const WA_NUMERO = '525564503861'; // ✏️ tu WhatsApp (código de país + número, sin + ni espacios)
+  const WA_NUMERO = '525578485099'; // ✏️ tu WhatsApp (código de país + número, sin + ni espacios)
   const LINK_SECRET = 'LF-Boda17Oct2026#'; // ✏️ debe ser IDÉNTICO al usado al generar los enlaces
   const TIPO_MAP = { F: 'Familia', A: 'Amig@' }; // ✏️ agrega aquí más tipos si usas otros
 
@@ -329,7 +329,7 @@
     const expected = fnv1a(payload + LINK_SECRET).slice(0,6);
     if(expected !== checksum) return null; // token inválido / alterado
     const [code, invitado, cantidad] = payload.split('|');
-    const etiqueta = (TIPO_MAP[code] || code) + ' ' + invitado;
+    const etiqueta = code === 'A' ? invitado : (TIPO_MAP[code] || code) + ' ' + invitado;
     return { etiqueta, cantidad };
   }
 
